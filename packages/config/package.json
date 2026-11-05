@@ -1,0 +1,7 @@
+{
+  "name": "@rem/config",
+  "version": "0.1.0",
+  "private": true,
+  "exports": { "./tsconfig/base.json": "./typescript/base.json", "./tsconfig/next.json": "./typescript/next.json", "./eslint": "./eslint/index.mjs" },
+  "dependencies": { "@eslint/js": "^10.0.0", "eslint": "^10.14.0", "typescript-eslint": "^8.72.1" }
+}

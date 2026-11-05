@@ -1,0 +1,31 @@
+{
+  "name": "real-estate-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "turbo run dev --filter=@rem/api --filter=@rem/web",
+    "dev:mobile": "pnpm --filter @rem/mobile start",
+    "dev:local": "tsx packages/testing/src/dev-stack.ts",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "test": "turbo run test --concurrency=1",
+    "test:e2e": "pnpm --filter @rem/web test:e2e",
+    "db:push": "supabase db push --remote --include-seed",
+    "setup:env": "node scripts/setup-env.mjs",
+    "smoke:supabase": "pnpm --filter @rem/api exec node scripts/smoke-supabase.mjs",
+    "db:reset": "supabase db reset"
+  },
+  "devDependencies": {
+    "supabase": "3.0.0",
+    "tsx": "^4.23.15",
+    "turbo": "^2.11.10",
+    "typescript": "~6.0.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["sharp", "supabase", "esbuild", "embedded-postgres", "@embedded-postgres/windows-x64"],
+    "overrides": { "react": "19.3.0", "react-dom": "19.3.0", "@types/react": "~19.3.0" }
+  }
+}
